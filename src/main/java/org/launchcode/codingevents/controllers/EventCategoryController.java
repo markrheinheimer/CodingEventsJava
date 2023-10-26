@@ -19,14 +19,14 @@ public class EventCategoryController {
     @Autowired
     private EventCategoryRepository eventCategoryRepository;
 
-    @GetMapping
+    @GetMapping()
     public String displayAllCategories(Model model) {
         model.addAttribute("title", "All Categories");
         model.addAttribute("categories", eventCategoryRepository.findAll());
         return "eventCategories/index";
     }
 
-    @GetMapping
+    @GetMapping("create")
     public String renderCreateEventCategoryForm(Model model) {
         model.addAttribute("title", "Create Category");
         model.addAttribute(new EventCategory());

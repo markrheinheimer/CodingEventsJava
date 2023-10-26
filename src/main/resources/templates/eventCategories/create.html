@@ -1,17 +1,19 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
-<head th:replace="fragments :: head"></head>
+<head th:replace="~{fragments :: head}"></head>
 <body class="container">
 
-<header th:replace="fragments :: header"></header>
+    <header th:replace="~{fragments :: header}"></header>
 
-<form method="post">
-    <div class="form-group">
-        <label>Name
-            <input th:field="${event.name}" class="form-control">
-        </label>
-        <p class="error" th:errors="${event.name}"></p>
-    </div>
-</form>
+    <form method="post">
+        <div class="form-group">
+            <label th:text="${title}">
+                <input type="text" th:field="${name}" class="form-control"/>
+                <input type="submit" value="Submit">
+            </label>
+            <p class="error" th:errors="${eventCategory.name}"></p>
+        </div>
+    </form>
+
 </body>
 </html>
